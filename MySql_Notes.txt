@@ -1,0 +1,159 @@
+MySql Notes
+
+MySQL Tutorial for Beginners [Full Course]
+Programming with Mosh
+
+
+Creating Databases:
+
+Running Databases:
+	
+	1) To execute open code, first select a sql 
+	2) Ensure you are connected to DBMS (Database Management Service)
+	3) Click on "Excute" Icon, in the form of a thunderbolt. Can highlight individual code to excute.
+		- To ensure database loaded correctly, go to the "Schemas" Tab and check for individual databases loaded. If nothing appears hit the refresh button on top right of Schemas menu title.
+	
+	4) Every database has a set of object:
+		- Tables: store data
+		- Views: "virtual tables" can combine multiple data from tables and put them in a view. Powerful for creating reports
+		- Stored Procedures: Stored Programs to be used to retrieve data from a database
+		- Functions: Similar to Procedures, pass parameters into a function and then return a value (from the database)
+		
+	5) To access data, click on the "Tables" object and hover your mouse over the table you want to access, click on the icon with a Table and Lightning Bolt, to see all data in the table
+		- If the tables are still stuck fetching the data after sometime, there may be a bug, restart the client
+	
+	6) Every Row in a table is called a "Record" which has a list of values for each given cell, with "columns" naming the values of these cells
+	
+	7) When linking data of a table, to another set of data, set a similar column number and specify which type of data you would like to linking
+		- i.e. If we have customer "John" with customer_id "1" saved under a customer list. We want to link John to his specific order, in an "Orders" table, create a column with customer_id and set a cell within the table to "1"
+		- This is done so that if "John" places multiple orders under different persona's we can just change John's information from the "customers" table instead of changing his data in the "orders" table 
+		- Databases such as these are called "Relational Databases"
+		
+	Selecting a Database Query
+	
+	1) Highlight a database that we want to write a query for
+	
+	2) We want to write the "USE" keyword inorder to get use the database.
+		- i.e. USE sql_store
+		- For keywords use CAPITAL Letters
+		
+	3) Next we want to use the "SELECT" keyword to get columns from the database, if we want to select all columns then after the SELECT keyword put an asterisk "*"
+		- i.e. SELECT customer_id, first_name;
+		- i.e. SELECT *;
+		
+	4) After we can use the "FROM" keyword to specifiy the table in which the columns are selected from by the "SELECT" keyword
+		- SELECT *
+		- FROM customers; 
+	
+	5) We can use the "WHERE" keyword to filter out specific values within the columns 
+		- i.e. WHERE customer_id = 1
+		
+	6) The "ORDER BY" keyword will sort the values within the column by either Alphabetical or Numerical Orders
+		- i.e. ORDER BY first_name
+	
+	7) "--" Is used to comment out text within the program 
+	
+	8) The order of the "keywords" or "clauses" matter, SELECT, FROM, WHERE, ORDER BY 
+		- If they aren't in this order, then an error will occur
+	
+	9) Its good practice keep each clause on a different line
+	
+	SELECT Clause
+	
+	1) While selecting various columns, using the "SELECT" clause, we can also add arithmatic expressions to these points
+		-Remember Order of Expressions (PEMDAS)
+	
+	2) If the columns selected are too long for the line, you could add each column to a new line
+		- i.e. SELECT 
+					last_name,
+					first_name,
+					points,
+					points * 10 + 100; 
+	
+	3) To rename or assign an alias to a column, use the "AS" keyword
+		- i.e. SELECT (points + 10) * 100 AS 'discount factor' 
+		- use quotation marks 
+	
+	4) To change values within a data table, double click on the cell you want to change, write in the changes, then click "Apply" on the lower left
+	
+	5) To see data selected from a table, without viewing duplicated data, use keywords "SELECT" and "DISTINCT" along with the column name of the values you want,
+		along with keyword "FROM" to select the table of which to take the values from
+		- i.e. SELECT DISTINCT state
+				FROM customers
+	
+	6) EXERCISE 1:
+		
+		SELECT 
+			name,
+			unit_price,
+			unit_price * 1.1 AS new_price
+		FROM 
+			sql_inventory.products;
+	
+	WHERE Clause
+	
+	1) The WHERE clause filters data
+	
+	2) When using the where clause, you need to add a conditonal statement
+		- i.e. SELECT *
+				FROM
+					Customers
+				WHERE points > 3000
+		
+	3) You can use a mariad of operators standard to programing: > , >= , < , <= , = , != OR <> (not equal, wouldn't recommend)
+	
+	4) You can also use logical operators to combine multiple conditions to filter out
+		i.e.	
+			WHERE points > '1000' && state != 'VA'
+		- Treat numbers as string 
+		
+	5) EXERCISE 2:
+		
+		SELECT	*
+		FROM
+			orders
+		WHERE
+			order_date >= "2019-01-01"
+			
+	
+	AND, OR, NOT Operators:
+	
+	1) As described previously we can use AND, OR, and NOT operators to filter data
+	
+	2) We can use either the keywords AND, OR, NOT, or we could use programming syntax of &&, ||, !=
+	
+	3) When combining logical operators, be aware of the order of the logical operators 
+		- AND operators is evaluated first !always!
+		- Use parenthesis for clarity
+		
+	4) We can use the NOT operator to negate conditions 
+		- Remember when using the NOT operator, the NOT can be used to inverse the logical properties of certain statements 
+		
+		- i.e. WHERE 
+			NOT( birth_date > "1990-01-01"
+			OR 
+			points > "1000" AND state = "VA")
+	
+		- So the statement reads 
+			NOT > = <=
+			NOT OR = AND
+			NOT AND = OR
+	
+		- If confused read DeMorgan's Law Notes 
+		
+	5)	LOGICAL OPERATORS EXERCISE:
+	
+		SELECT	*
+		FROM
+			order_items
+		WHERE 
+			order_id = 6
+			AND
+			unit_price * quantity >  "30"
+		
+	
+	
+					
+	
+	
+	
