@@ -150,7 +150,36 @@ Running Databases:
 			order_id = 6
 			AND
 			unit_price * quantity >  "30"
-		
+	
+	6) We can also use the IN operator when we want to identify a list of values within a column
+	- i.e. 
+		WHERE
+		 state IN ('VA', 'FL', 'GA')
+
+
+	7) We can also use the BETWEEN operator to get data of values between certain parameters
+		-i.e. 
+			WHERE
+				points BETWEEN 1000 AND 3000
+	
+	8) LIKE operator can be used to identify values that match certain parameters identified after the LIKE operator
+		- i.e.
+			WHERE
+			  last_name LIKE 'brush%' 
+
+		- LIKE in this case, finds values that start off with 'brush' and the % is a wild-card character(s) 
+
+		- Can also use the % character to identifty matches within values such as '%b%' to identify matches that have a 'b' character somewhere in their value either beginner, middle, or end
+
+		- The '_' can be used to limit the amount of characters that you want to find within a data value 
+
+		- i.e. 
+			WHERE
+			  last_name LIKE '_y'
+
+	
+ 
+	
 	
 	
 					
