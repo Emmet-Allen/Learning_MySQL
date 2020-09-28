@@ -176,6 +176,23 @@ Running Databases:
 		- i.e. 
 			WHERE
 			  last_name LIKE '_y'
+			  
+		EXERCISE 1)
+		
+		- Get the customers whose addresses contain TRAIL or AVENUE 
+		
+
+		
+		EXERCISE 2)
+		
+		Get the customers whose phone number ends in '9'
+		
+		SELECT	*
+		FROM
+			Customers
+		WHERE
+			phone LIKE '%9'; 
+		
 
 	
  
