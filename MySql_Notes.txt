@@ -172,6 +172,9 @@ Running Databases:
 		- Can also use the % character to identifty matches within values such as '%b%' to identify matches that have a 'b' character somewhere in their value either beginner, middle, or end
 
 		- The '_' can be used to limit the amount of characters that you want to find within a data value 
+		
+		- Logical statements can be used before the 'LIKE' keyword
+
 
 		- i.e. 
 			WHERE
@@ -193,6 +196,50 @@ Running Databases:
 		WHERE
 			phone LIKE '%9'; 
 		
+		9) REGEXP OPERATORS
+		
+		- REGEXP keyword is used for Regular Expressions
+		
+		- When using REGEXP, we can use the character '^' to indicate the beginning of a string 
+			i.e.
+			
+			WHERE
+				last_name REGEXP '^field' //The name must begin with field
+		
+		- When using REGEXP the '$' indicates the end of a string
+		i.e.
+		
+			WHERE
+				last_name REGEXP 'field$' //The name must end with field
+		
+		
+
+		- When using REGEXP the '|' indicates 'OR' 
+		i.e.
+		
+			WHERE
+				last_name REGEXP 'field$|mac|rose' //The name must include either 'field' at the end of the string, 
+				'mac', or 'rose'
+					
+					- The '|' can be used in conjunction with other REGEXP characters 
+		 
+		 - Square Brackets '[]' within a REGEXP can be used to define character combinations with those 
+		 outside of the bracket
+		 
+		 i.e.
+			WHERE
+				last_name REGEXP '[gim]e' //Finds strings that have either 'ge', 'ie', or 'me'  
+				
+		- '[]' can also be use to combine characters at the begining of a string 
+			
+			i.e.
+				WHERE
+					last_name REGEXP 'e[fmq]' // Finds strings that have either 'ef', 'em' or 'eq'
+		
+		- 
+					
+		 
+		 
 
 	
  
